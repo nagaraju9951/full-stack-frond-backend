@@ -14,7 +14,7 @@ pipeline {
 
         stage('prepare') {
             steps {
-                sh "ansible-vault decrypt --vault-id /tmp/naga-vault-id demokey.pem"
+                sh "ansible-vault decrypt --vault-id /opt/naga-vault-id demokey.pem"
                 sh "chmod 400 demokey.pem"
                 sh "ansible-playbook -i inventory fullstack-deploy.yml"
             }
