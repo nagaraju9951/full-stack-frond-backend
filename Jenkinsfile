@@ -8,14 +8,14 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git credentialsId: 'ca-git-access', branch: 'development', url: "https://git.cloudavise.com/visops/t056/sample-fullstack-app.git"
+                git credentialsId: 'ca-git-access', branch: 'development', url: "https://git.cloudavise.com/visops/t057/full-stack-frond-backend.git"
             }
         }
 
         stage('prepare') {
             steps {
-                sh "ansible-vault decrypt --vault-id /tmp/vault_id demo.pem"
-                sh "chmod 400 demo.pem"
+                sh "ansible-vault decrypt --vault-id /tmp/naga-vault-id demokey.pem"
+                sh "chmod 400 demokey.pem"
                 sh "ansible-playbook -i inventory fullstack-deploy.yml"
             }
         }
