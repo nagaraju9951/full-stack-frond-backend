@@ -1,0 +1,12 @@
+; -*-mode: ansible; coding: utf-8;-*-
+
+
+
+[webservers]
+
+fullstack-new  ansible_host=3.214.143.1  ansible_port=22     ansible_user=ubuntu     ansible_ssh_private_key_file="~/Downloads/demokey.pem"
+
+
+
+[all:vars]
+ansible_ssh_pipelining=no
